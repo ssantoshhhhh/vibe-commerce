@@ -13,11 +13,12 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 - Loading states to prevent multiple clicks and improve UX
 - Automatic redirection to products page after checkout
 - Toast alerts for success/error feedback
+- **Order confirmation emails sent to customers**
 
 ## Tech Stack
 
 - **Frontend**: React.js with Axios, React Router, React Toastify
-- **Backend**: Node.js + Express.js
+- **Backend**: Node.js + Express.js, NodeMailer
 - **Database**: MongoDB Atlas (Cloud)
 - **Styling**: CSS
 
@@ -30,6 +31,13 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 - **Toast Notifications**: Success/error alerts using React Toastify
 - **Checkout Flow**: Automatic redirection to products page after successful checkout
 - **Git Configuration**: Added backend/data/ to .gitignore to avoid committing MongoDB data files
+
+### Email Integration (Latest Update)
+- **Order Confirmation Emails**: Automated emails sent to customers after successful checkout
+- **Email Service**: NodeMailer integration with Gmail SMTP
+- **Email Templates**: Professional HTML and plain text email templates
+- **Error Handling**: Email failures don't affect checkout process
+- **Configuration**: Environment variables for email credentials
 
 ## Setup Instructions
 
@@ -53,10 +61,19 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
      MONGO_URI=mongodb+srv://your-username:your-password@cluster0.mongodb.net/vibe-commerce?retryWrites=true&w=majority
      ```
 
-4. **Seed products (optional)**
+4. **Configure Email Service**
+   - For Gmail: Generate an App Password (not your regular password)
+   - Update `.env` file with email credentials:
+     ```
+     EMAIL_USER=your-email@gmail.com
+     EMAIL_PASS=your-gmail-app-password
+     ```
+   - For other email providers, update the service in `backend/services/emailService.js`
+
+5. **Seed products (optional)**
    You can add products via POST to `/api/products` or directly in MongoDB Atlas.
 
-5. **Run the application**
+6. **Run the application**
    ```bash
    npm start
    ```
@@ -68,7 +85,7 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 - `POST /api/cart` - Add item to cart
 - `GET /api/cart` - Get cart items and total
 - `DELETE /api/cart/:id` - Remove item from cart
-- `POST /api/checkout` - Perform checkout
+- `POST /api/checkout` - Perform checkout (sends confirmation email)
 
 ## User Flow
 
@@ -79,6 +96,7 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 5. Enter customer details
 6. Complete purchase and automatically redirect to products page
 7. Receive toast notifications for success/error states
+8. **Receive order confirmation email with full order details**
 
 ## Project Structure
 
@@ -89,6 +107,8 @@ vibe-commerce-cart/
 │   ├── models/
 │   ├── routes/
 │   ├── config/
+│   ├── services/
+│   │   └── emailService.js
 │   ├── server.js
 │   └── package.json
 ├── frontend/
@@ -116,10 +136,24 @@ vibe-commerce-cart/
 - `mongoose`: ^7.5.3
 - `cors`: ^2.8.5
 - `dotenv`: ^16.3.1
+- `nodemailer`: ^6.9.7 (for email functionality)
+
+## Email Configuration
+
+The application uses NodeMailer to send order confirmation emails. Currently configured for Gmail:
+
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. **Generate App Password**: Go to Google Account settings → Security → 2-Step Verification → App passwords
+3. **Use App Password**: Don't use your regular Gmail password, use the generated app password
+4. **Update .env**: Set EMAIL_USER and EMAIL_PASS with your Gmail address and app password
+
+For other email providers, modify the transporter configuration in `backend/services/emailService.js`.
 
 ## Development Notes
 
 - Loading states prevent race conditions and multiple API calls
 - Toast notifications provide immediate user feedback
 - Automatic redirection after checkout improves user experience
+- Email sending is asynchronous and doesn't block checkout completion
 - MongoDB data directory is gitignored to prevent committing database files
+- Email failures are logged but don't affect the checkout process

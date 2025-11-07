@@ -1,0 +1,6 @@
+- [x] Install nodemailer in backend
+- [x] Create email service file
+- [x] Add email configuration to .env
+- [x] Modify checkout controller to send email
+- [ ] Test email functionality
+- [ ] Update README with email feature

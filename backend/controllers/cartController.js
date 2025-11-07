@@ -1,5 +1,6 @@
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
+const { sendOrderConfirmationEmail } = require('../services/emailService');
 
 // @desc    Get all cart items
 // @route   GET /api/cart
@@ -104,10 +105,17 @@ const checkout = async (req, res) => {
   try {
     // Calculate total
     let total = 0;
+    const orderItems = [];
+
     for (const item of cartItems) {
       const product = await Product.findById(item.productId);
       if (product) {
         total += product.price * item.qty;
+        orderItems.push({
+          name: product.name,
+          price: product.price,
+          qty: item.qty
+        });
       }
     }
 
@@ -115,10 +123,18 @@ const checkout = async (req, res) => {
     await Cart.deleteMany({});
 
     const receipt = {
+      _id: Date.now().toString(), // Simple ID generation
       total,
       timestamp: new Date().toISOString(),
       customer,
+      items: orderItems
     };
+
+    // Send order confirmation email (don't wait for it to complete)
+    sendOrderConfirmationEmail(customer, receipt).catch(emailError => {
+      console.error('Email sending failed:', emailError);
+      // Don't fail the checkout if email fails
+    });
 
     res.json({
       message: 'Checkout successful',
