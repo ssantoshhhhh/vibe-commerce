@@ -19,6 +19,7 @@ const Home = () => {
             <li>Mock checkout with receipt generation</li>
             <li>Data persistence in MongoDB Atlas</li>
             <li>Clean, responsive React UI</li>
+            <li>Toastify Alerts</li>
           </ul>
         </div>
         <div className="tech-stack-section">
