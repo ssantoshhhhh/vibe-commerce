@@ -4,14 +4,26 @@ import './ProductList.css';
 const ProductList = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      fetchProducts();
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm]);
+
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/products');
+      const url = searchTerm
+        ? `/api/products?search=${encodeURIComponent(searchTerm)}`
+        : '/api/products';
+      const response = await fetch(url);
       const data = await response.json();
       setProducts(data);
       setLoading(false);
@@ -46,6 +58,15 @@ const ProductList = ({ addToCart }) => {
         <div className="page-header">
           <h1>Products</h1>
           <p>Browse our collection</p>
+        </div>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search products by name or description..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
         </div>
         {products.length === 0 ? (
           <div className="empty-state">

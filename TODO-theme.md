@@ -1,0 +1,8 @@
+- [x] Update App.css for overall theme (replace green with red, remove glows)
+- [x] Update Navbar.css (replace green with red, remove glows)
+- [x] Update Home.css (replace green with red, remove glows)
+- [x] Update ProductList.css (replace green with red, remove glows)
+- [x] Update Cart.css (replace green with red, remove glows)
+- [x] Update Checkout.css (replace green with red, remove glows)
+- [x] Update ReceiptModal.css (replace green with red, remove glows)
+- [x] Test the new WhatsApp-like red theme

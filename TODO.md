@@ -6,4 +6,4 @@
 - [x] Add toast notification when item is added to cart
 - [x] Add quantity change functionality in cart (increment/decrement)
 - [x] Add backend endpoint for updating cart item quantity
-- [ ] Optimize response times for cart operations
+- [x] Optimize response times for cart operations

@@ -1,7 +1,7 @@
 .product-list-container {
   min-height: calc(100vh - 64px);
   padding: 2rem 0;
-  background: #000000;
+  background: #ffffff;
 }
 
 .loading {
@@ -29,55 +29,82 @@
 
 .loading p {
   font-size: 1rem;
-  color: #cccccc;
+  color: #000000;
   font-weight: 400;
 }
 
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #000000;
 }
 
 .page-header p {
   font-size: 1.2rem;
-  color: #cccccc;
+  color: #000000;
   max-width: 600px;
   margin: 0 auto;
 }
 
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #dc3545;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
 .empty-state h2 {
-  color: #ffffff;
+  color: #000000;
 }
 
 .empty-state p {
-  color: #cccccc;
+  color: #000000;
 }
 
 .product-card {
-  background: #333333;
-  border: 1px solid #555555;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1rem;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-color: #dc3545;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-card h3 {
-  color: #ffffff;
+  color: #000000;
 }
 
 .product-card-price {
-  color: #cccccc;
+  color: #000000;
   font-weight: 600;
 }
 
 .btn {
-  background: #000000;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
   color: #ffffff;
   border: none;
   padding: 0.5rem 1rem;
@@ -87,5 +114,5 @@
 }
 
 .btn:hover {
-  background: #333333;
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
 }

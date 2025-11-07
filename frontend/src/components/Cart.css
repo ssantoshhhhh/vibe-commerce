@@ -1,7 +1,7 @@
 .cart-container {
   min-height: calc(100vh - 64px);
   padding: 2rem 0;
-  background: #000000;
+  background: #ffffff;
 }
  
 .cart-layout {
@@ -19,27 +19,26 @@
 }
 
 .cart-item-card {
-  background: #333333;
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 80px 1fr auto;
   gap: 1.5rem;
   align-items: center;
-  border: 1px solid #555555;
+  border: 1px solid #e5e7eb;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-color: #dc3545;
 }
 
 .cart-item-image {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -56,7 +55,7 @@
 .cart-item-details h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 0.75rem;
 }
 
@@ -75,18 +74,18 @@
 
 .info-label {
   font-weight: 400;
-  color: #cccccc;
+  color: #6b7280;
 }
 
 .info-value {
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
 }
 
 .total-row {
   margin-top: 0.5rem;
   padding-top: 0.5rem;
-  border-top: 1px solid #555555;
+  border-top: 1px solid #e5e7eb;
 }
 
 .total-row .info-value {
@@ -103,9 +102,9 @@
 .qty-btn {
   width: 32px;
   height: 32px;
-  border: 1px solid #555555;
-  background: #444444;
-  color: #ffffff;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #000000;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
@@ -117,8 +116,8 @@
 }
 
 .qty-btn:hover:not(:disabled) {
-  background: #4ecdc4;
-  border-color: #4ecdc4;
+  background: #dc3545;
+  border-color: #dc3545;
 }
 
 .qty-btn:disabled {
@@ -130,7 +129,7 @@
   min-width: 40px;
   text-align: center;
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
 }
 
 .remove-btn {
@@ -145,20 +144,19 @@
 }
 
 .summary-card {
-  background: #333333;
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   padding: 2rem;
-  border: 1px solid #555555;
+  border: 1px solid #e5e7eb;
 }
 
 .summary-card h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #555555;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .summary-row {
@@ -167,24 +165,24 @@
   align-items: center;
   padding: 0.75rem 0;
   font-size: 1rem;
-  color: #cccccc;
+  color: #6b7280;
 }
 
 .summary-row span:last-child {
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
 }
 
 .summary-divider {
   height: 1px;
-  background: #555555;
+  background: #e5e7eb;
   margin: 1rem 0;
 }
 
 .total-row .total-amount {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
 }
 
 .checkout-btn,

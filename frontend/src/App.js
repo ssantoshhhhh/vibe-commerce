@@ -106,9 +106,12 @@ function App() {
       });
 
       if (response.ok) {
-        toast.success('Order placed successfully!');
+        const data = await response.json();
+        setReceipt(data.receipt);
+        setShowReceipt(true);
         setCart([]);
         setCartCount(0);
+        toast.success('Order placed successfully!');
         navigate('/products');
       } else {
         toast.error('Failed to place order. Please try again.');

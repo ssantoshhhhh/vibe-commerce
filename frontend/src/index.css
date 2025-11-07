@@ -11,9 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #000000;
+  background: #ffffff;
   min-height: 100vh;
-  color: #ffffff;
+  color: #000000;
   line-height: 1.6;
 }
 
@@ -26,12 +26,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 p {
-  color: #cccccc;
+  color: #6b7280;
   margin-bottom: 1rem;
 }
 
@@ -50,27 +50,29 @@ p {
   border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid #e5e7eb;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-  background: #cccccc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #f9fafb;
+  border-color: #dc3545;
 }
 
 .btn-secondary {
-  background: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
-  background: #333333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #f9fafb;
+  border-color: #dc3545;
 }
 
 .page-header {
@@ -81,12 +83,12 @@ p {
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #000000;
 }
 
 .page-header p {
   font-size: 1.2rem;
-  color: #cccccc;
+  color: #6b7280;
   max-width: 600px;
   margin: 0 auto;
 }

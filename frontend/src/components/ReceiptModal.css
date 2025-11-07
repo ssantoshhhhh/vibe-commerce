@@ -5,29 +5,29 @@
 }
 
 .receipt-header {
-  background: #000000;
+  background: #ffffff;
   padding: 2rem 2rem 1.5rem;
   text-align: center;
-  color: white;
+  color: #000000;
 }
 
 .receipt-header h2 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: white;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 .receipt-header p {
   font-size: 1rem;
-  color: #cccccc;
+  color: #6b7280;
   margin: 0;
 }
 
 .receipt-card {
   padding: 2rem;
-  background: #333333;
-  border: 1px solid #555555;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
 }
 
 .receipt-title {
@@ -36,25 +36,25 @@
   align-items: center;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #555555;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .receipt-title h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
 }
 
 .receipt-id {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #cccccc;
-  background: #333333;
+  color: #6b7280;
+  background: #ffffff;
   padding: 0.375rem 0.75rem;
   border-radius: 8px;
   letter-spacing: 0.5px;
-  border: 1px solid #555555;
+  border: 1px solid #e5e7eb;
 }
 
 .receipt-section {
@@ -64,10 +64,10 @@
 .receipt-section h4 {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #555555;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .receipt-details {
@@ -85,14 +85,14 @@
 
 .detail-label {
   font-weight: 500;
-  color: #cccccc;
+  color: #6b7280;
   font-size: 0.875rem;
   min-width: 100px;
 }
 
 .detail-value {
   font-weight: 400;
-  color: #ffffff;
+  color: #000000;
   font-size: 1rem;
   text-align: right;
   flex: 1;
@@ -100,37 +100,37 @@
 
 .receipt-divider {
   height: 1px;
-  background: #555555;
+  background: #e5e7eb;
   margin: 0.75rem 0;
 }
 
 .total-row {
   margin-top: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px solid #555555;
+  border-top: 1px solid #e5e7eb;
 }
 
 .total-row .detail-label {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: #000000;
   font-weight: 600;
 }
 
 .total-amount {
   font-size: 1.75rem !important;
   font-weight: 700 !important;
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .receipt-footer {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #555555;
+  border-top: 1px solid #e5e7eb;
   text-align: center;
 }
 
 .receipt-footer p {
-  color: #cccccc;
+  color: #6b7280;
   font-size: 0.875rem;
   margin: 0;
 }

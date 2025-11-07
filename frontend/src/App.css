@@ -1,7 +1,8 @@
 /* Global App Styles */
 .App {
   min-height: 100vh;
-  background: #000000;
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Container */
@@ -20,15 +21,12 @@
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #000000;
 }
 
 .page-header p {
   font-size: 1.2rem;
-  opacity: 0.9;
+  color: #000000;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -37,38 +35,34 @@
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-  color: white;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: #ffffff;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
 }
 
 .btn-danger {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
 }
 
 .btn-danger:hover {
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
 }
 
 .btn-secondary:hover {
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
 }
 
 .btn:disabled {
@@ -80,14 +74,12 @@
 
 /* Card Styles */
 .card {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   margin: 1rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Grid Layout */
@@ -100,30 +92,28 @@
 
 /* Product Card Specific */
 .product-card {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: 0;
   margin: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border-color: #dc3545;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-card-image {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +133,7 @@
 .product-card h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: white;
+  color: #000000;
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
@@ -151,7 +141,7 @@
 .product-card-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
@@ -171,31 +161,28 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: white;
+  color: #000000;
   font-size: 0.875rem;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
   font-size: 0.9375rem;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  color: white;
+  background: #ffffff;
+  color: #000000;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #4ecdc4;
-  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+  border-color: #dc3545;
 }
 
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: #9ca3af;
 }
 
 /* Modal Styles */
@@ -223,19 +210,17 @@
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  background: #ffffff;
   padding: 2rem;
   border-radius: 16px;
   max-width: 600px;
   width: 90%;
   max-height: 85vh;
   overflow-y: auto;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: slideUp 0.3s ease;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes slideUp {
@@ -251,13 +236,13 @@
 
 .modal-content h2 {
   font-size: 1.75rem;
-  color: white;
+  color: #000000;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .modal-content p {
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -269,7 +254,7 @@
   align-items: center;
   min-height: 400px;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000000;
   font-weight: 400;
 }
 
@@ -277,13 +262,13 @@
 .empty-state {
   text-align: center;
   padding: 5rem 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000000;
 }
 
 .empty-state h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: white;
+  color: #000000;
   font-weight: 600;
 }
 
