@@ -18,7 +18,7 @@ const Cart = ({ cart, removeFromCart, updateCartQuantity, loading }) => {
           <div className="empty-state">
             <h2>Your cart is empty</h2>
             <p>Start adding items to your cart.</p>
-            <Link to="/">
+            <Link to="/products">
               <button className="btn">Continue Shopping</button>
             </Link>
           </div>
