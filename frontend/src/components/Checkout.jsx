@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Checkout.css';
 
-const Checkout = ({ cart, onCheckout }) => {
+const Checkout = ({ cart, onCheckout, loading }) => {
   const [customer, setCustomer] = useState({ 
     name: '', 
     email: '',
@@ -14,8 +14,9 @@ const Checkout = ({ cart, onCheckout }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return; // Prevent multiple submissions
     setIsSubmitting(true);
-    
+
     // Validation
     const newErrors = {};
     if (!customer.name.trim()) {
@@ -123,12 +124,12 @@ const Checkout = ({ cart, onCheckout }) => {
                   />
                   {errors.address && <span className="error-message">{errors.address}</span>}
                 </div>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="btn checkout-submit-btn"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || loading}
                 >
-                  {isSubmitting ? 'Processing...' : 'Complete Purchase'}
+                  {isSubmitting || loading ? 'Processing...' : 'Complete Purchase'}
                 </button>
               </form>
             </div>

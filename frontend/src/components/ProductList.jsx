@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 
-const ProductList = ({ addToCart }) => {
+const ProductList = ({ addToCart, loading }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loadingProducts, setLoadingProducts] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -26,14 +26,15 @@ const ProductList = ({ addToCart }) => {
       const response = await fetch(url);
       const data = await response.json();
       setProducts(data);
-      setLoading(false);
+      setLoadingProducts(false);
     } catch (error) {
       console.error('Error fetching products:', error);
-      setLoading(false);
+      setLoadingProducts(false);
     }
   };
 
   const handleAddToCart = async (productId) => {
+    if (loading) return; // Prevent multiple clicks
     try {
       await addToCart(productId, 1);
     } catch (error) {
@@ -41,7 +42,7 @@ const ProductList = ({ addToCart }) => {
     }
   };
 
-  if (loading) {
+  if (loadingProducts) {
     return (
       <div className="product-list-container">
         <div className="loading">
@@ -78,7 +79,11 @@ const ProductList = ({ addToCart }) => {
             {products.map((product) => (
               <div key={product._id} className="product-card">
                 <div className="product-card-image">
-                  {product.name.charAt(0)}
+                  {product.image ? (
+                    <img src={product.image} alt={product.name} />
+                  ) : (
+                    product.name.charAt(0)
+                  )}
                 </div>
                 <div className="product-card-content">
                   <h3>{product.name}</h3>
@@ -87,8 +92,9 @@ const ProductList = ({ addToCart }) => {
                     className="btn"
                     onClick={() => handleAddToCart(product._id)}
                     data-product-id={product._id}
+                    disabled={loading}
                   >
-                    Add to Cart
+                    {loading ? 'Adding...' : 'Add to Cart'}
                   </button>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.css';
 
-const Cart = ({ cart, removeFromCart, updateCartQuantity }) => {
+const Cart = ({ cart, removeFromCart, updateCartQuantity, loading }) => {
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const tax = subtotal * 0.18; // 18% GST
   const finalTotal = subtotal + tax;
@@ -43,7 +43,7 @@ const Cart = ({ cart, removeFromCart, updateCartQuantity }) => {
                           <button
                             className="qty-btn"
                             onClick={() => updateCartQuantity(item._id, item.qty - 1)}
-                            disabled={item.qty <= 1}
+                            disabled={item.qty <= 1 || loading}
                           >
                             -
                           </button>
@@ -51,6 +51,7 @@ const Cart = ({ cart, removeFromCart, updateCartQuantity }) => {
                           <button
                             className="qty-btn"
                             onClick={() => updateCartQuantity(item._id, item.qty + 1)}
+                            disabled={loading}
                           >
                             +
                           </button>
@@ -65,8 +66,9 @@ const Cart = ({ cart, removeFromCart, updateCartQuantity }) => {
                   <button
                     className="btn btn-danger remove-btn"
                     onClick={() => removeFromCart(item._id)}
+                    disabled={loading}
                   >
-                    Remove
+                    {loading ? 'Removing...' : 'Remove'}
                   </button>
                 </div>
               ))}

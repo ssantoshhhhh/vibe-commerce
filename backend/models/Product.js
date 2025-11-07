@@ -13,6 +13,10 @@ const productSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  image: {
+    type: String,
+    default: '',
+  },
 }, {
   timestamps: true,
 });

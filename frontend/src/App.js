@@ -16,6 +16,8 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [receipt, setReceipt] = useState(null);
   const [showReceipt, setShowReceipt] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   useEffect(() => {
     fetchCart();
@@ -33,6 +35,7 @@ function App() {
   };
 
   const addToCart = async (productId, qty) => {
+    setLoading(true);
     try {
       const response = await fetch('/api/cart', {
         method: 'POST',
@@ -43,30 +46,36 @@ function App() {
       });
       if (response.ok) {
         toast.success('Item added to cart!');
-        fetchCart();
+        await fetchCart();
       } else {
         toast.error('Failed to add item to cart.');
       }
     } catch (error) {
       console.error('Error adding to cart:', error);
       toast.error('Error adding item to cart.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const removeFromCart = async (id) => {
+    setLoading(true);
     try {
       await fetch(`/api/cart/${id}`, {
         method: 'DELETE',
       });
       toast.success('Item removed from cart!');
-      fetchCart();
+      await fetchCart();
     } catch (error) {
       console.error('Error removing from cart:', error);
       toast.error('Error removing item from cart.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const updateCartQuantity = async (id, qty) => {
+    setLoading(true);
     try {
       const response = await fetch(`/api/cart/${id}`, {
         method: 'PUT',
@@ -77,17 +86,20 @@ function App() {
       });
       if (response.ok) {
         toast.success('Quantity updated!');
-        fetchCart();
+        await fetchCart();
       } else {
         toast.error('Failed to update quantity.');
       }
     } catch (error) {
       console.error('Error updating cart quantity:', error);
       toast.error('Error updating quantity.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleCheckout = async (customerData) => {
+    setCheckoutLoading(true);
     try {
       const cartItems = cart.map(item => ({
         productId: item.productId,
@@ -119,6 +131,8 @@ function App() {
     } catch (error) {
       console.error('Error during checkout:', error);
       toast.error('An error occurred during checkout. Please try again.');
+    } finally {
+      setCheckoutLoading(false);
     }
   };
 
@@ -132,9 +146,9 @@ function App() {
       <Navbar cartCount={cartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductList addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} updateCartQuantity={updateCartQuantity} />} />
-        <Route path="/checkout" element={<Checkout cart={cart} onCheckout={handleCheckout} />} />
+        <Route path="/products" element={<ProductList addToCart={addToCart} loading={loading} />} />
+        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} updateCartQuantity={updateCartQuantity} loading={loading} />} />
+        <Route path="/checkout" element={<Checkout cart={cart} onCheckout={handleCheckout} loading={checkoutLoading} />} />
       </Routes>
       {showReceipt && <ReceiptModal receipt={receipt} onClose={closeReceipt} />}
       <ToastContainer />

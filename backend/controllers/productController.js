@@ -28,7 +28,7 @@ const getProducts = async (req, res) => {
 // @route   POST /api/products
 // @access  Public (for demo purposes)
 const createProduct = async (req, res) => {
-  const { name, price } = req.body;
+  const { name, price, image } = req.body;
 
   if (!name || !price) {
     return res.status(400).json({ message: 'Please provide name and price' });
@@ -38,6 +38,7 @@ const createProduct = async (req, res) => {
     const product = new Product({
       name,
       price,
+      image: image || '',
     });
 
     const createdProduct = await product.save();
