@@ -1,0 +1,9 @@
+- [x] Update App.js to import useNavigate, ToastContainer, toast from react-toastify
+- [x] Modify handleCheckout function to show success toast and navigate to /products on success, error toast on failure
+- [x] Remove or adjust receipt modal display since redirecting
+- [x] Add ToastContainer to the JSX in App.js
+- [x] Test the checkout flow to ensure redirection and toasts work
+- [x] Add toast notification when item is added to cart
+- [x] Add quantity change functionality in cart (increment/decrement)
+- [x] Add backend endpoint for updating cart item quantity
+- [ ] Optimize response times for cart operations

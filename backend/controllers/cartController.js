@@ -53,6 +53,29 @@ const addToCart = async (req, res) => {
   }
 };
 
+// @desc    Update cart item quantity
+// @route   PUT /api/cart/:id
+// @access  Public
+const updateCartQuantity = async (req, res) => {
+  const { id } = req.params;
+  const { qty } = req.body;
+
+  if (!qty || qty < 1) {
+    return res.status(400).json({ message: 'Please provide a valid quantity' });
+  }
+
+  try {
+    const cartItem = await Cart.findByIdAndUpdate(id, { qty }, { new: true });
+    if (!cartItem) {
+      return res.status(404).json({ message: 'Cart item not found' });
+    }
+
+    res.json({ message: 'Quantity updated' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // @desc    Remove item from cart
 // @route   DELETE /api/cart/:id
 // @access  Public
@@ -109,6 +132,7 @@ const checkout = async (req, res) => {
 module.exports = {
   getCart,
   addToCart,
+  updateCartQuantity,
   removeFromCart,
   checkout,
 };

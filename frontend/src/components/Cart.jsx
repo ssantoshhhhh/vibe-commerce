@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.css';
 
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, removeFromCart, updateCartQuantity }) => {
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const tax = subtotal * 0.18; // 18% GST
   const finalTotal = subtotal + tax;
@@ -39,7 +39,22 @@ const Cart = ({ cart, removeFromCart }) => {
                       </div>
                       <div className="info-row">
                         <span className="info-label">Quantity</span>
-                        <span className="info-value">{item.qty}</span>
+                        <div className="quantity-controls">
+                          <button
+                            className="qty-btn"
+                            onClick={() => updateCartQuantity(item._id, item.qty - 1)}
+                            disabled={item.qty <= 1}
+                          >
+                            -
+                          </button>
+                          <span className="qty-value">{item.qty}</span>
+                          <button
+                            className="qty-btn"
+                            onClick={() => updateCartQuantity(item._id, item.qty + 1)}
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
                       <div className="info-row total-row">
                         <span className="info-label">Subtotal</span>
