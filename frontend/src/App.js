@@ -123,7 +123,10 @@ function App() {
         setShowReceipt(true);
         setCart([]);
         setCartCount(0);
-        toast.success('Order placed successfully! Check your email for confirmation.');
+        toast.success('Order placed successfully! Redirecting to products...');
+        setTimeout(() => {
+          navigate('/products');
+        }, 2000);
       } else {
         toast.error('Failed to place order. Please try again.');
       }
