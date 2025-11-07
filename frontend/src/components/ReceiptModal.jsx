@@ -1,8 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ReceiptModal.css';
 
 const ReceiptModal = ({ receipt, onClose }) => {
+  const navigate = useNavigate();
+
   if (!receipt) return null;
+
+  const handleContinueShopping = () => {
+    onClose();
+    navigate('/products');
+  };
 
   return (
     <div className="modal" onClick={onClose}>
@@ -67,9 +75,14 @@ const ReceiptModal = ({ receipt, onClose }) => {
             <p>We'll send you an email confirmation shortly.</p>
           </div>
         </div>
-        <button className="btn close-btn" onClick={onClose}>
-          Close
-        </button>
+        <div className="modal-actions">
+          <button className="btn close-btn" onClick={onClose}>
+            Close
+          </button>
+          <button className="btn continue-btn" onClick={handleContinueShopping}>
+            Continue Shopping
+          </button>
+        </div>
       </div>
     </div>
   );

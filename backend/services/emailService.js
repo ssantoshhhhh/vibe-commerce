@@ -1,15 +1,30 @@
 const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransporter({
-  service: 'gmail', // You can change this to your email provider
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
 });
 
+// Test email connection
+const testEmailConnection = async () => {
+  try {
+    await transporter.verify();
+    console.log('Email server is ready to send messages');
+    return true;
+  } catch (error) {
+    console.error('Email server connection failed:', error);
+    return false;
+  }
+};
+
 const sendOrderConfirmationEmail = async (customer, orderDetails) => {
   try {
+    console.log('Attempting to send email to:', customer.email);
+    console.log('Order details:', JSON.stringify(orderDetails, null, 2));
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: customer.email,
@@ -82,13 +97,17 @@ This is an automated email. Please do not reply.
 
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent successfully:', info.messageId);
+    console.log('Email accepted for delivery to:', info.accepted);
+    console.log('Email response:', info.response);
     return { success: true, messageId: info.messageId };
   } catch (error) {
     console.error('Error sending email:', error);
+    console.error('Error details:', error.message);
     return { success: false, error: error.message };
   }
 };
 
 module.exports = {
-  sendOrderConfirmationEmail
+  sendOrderConfirmationEmail,
+  testEmailConnection
 };
