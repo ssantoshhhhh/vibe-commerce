@@ -15,6 +15,23 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 - Toast alerts for success/error feedback
 - **Order confirmation emails sent to customers**
 
+## Screenshots
+
+### Landing Page
+![Landing Page](screenshots/landing_page.png)
+
+### Products Page
+![Products Page](screenshots/products_page.png)
+
+### Cart Page
+![Cart Page](screenshots/cart_page.png)
+
+### Checkout Page
+![Checkout Page](screenshots/checkout_page.png)
+
+### Order Confirmation
+![Order Confirmation](screenshots/order_conformation.png)
+
 ## Tech Stack
 
 - **Frontend**: React.js with Axios, React Router, React Toastify
