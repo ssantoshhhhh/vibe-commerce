@@ -1,22 +1,35 @@
 # Vibe Commerce – Mock E-Commerce Cart
 
-A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system that simulates essential shopping flow.
+A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system that simulates essential shopping flow with enhanced UI responsiveness and user experience.
 
 ## Features
 
 - Product listing with responsive grid
-- Add/remove items from cart
-- Calculate cart totals
+- Add/remove items from cart with loading states
+- Calculate cart totals with GST
 - Mock checkout with receipt generation
 - Data persistence in MongoDB Atlas
-- Clean, responsive React UI
+- Clean, responsive React UI with toast notifications
+- Loading states to prevent multiple clicks and improve UX
+- Automatic redirection to products page after checkout
+- Toast alerts for success/error feedback
 
 ## Tech Stack
 
-- **Frontend**: React.js with Axios & React Router
+- **Frontend**: React.js with Axios, React Router, React Toastify
 - **Backend**: Node.js + Express.js
 - **Database**: MongoDB Atlas (Cloud)
 - **Styling**: CSS
+
+## Recent Updates
+
+### UI/UX Improvements (Latest Commit)
+- **Loading States**: Added loading indicators to prevent multiple rapid clicks on buttons
+- **Button Responsiveness**: Buttons are disabled during operations with loading text ("Adding...", "Removing...", "Processing...")
+- **User Feedback**: Immediate visual feedback for all cart operations
+- **Toast Notifications**: Success/error alerts using React Toastify
+- **Checkout Flow**: Automatic redirection to products page after successful checkout
+- **Git Configuration**: Added backend/data/ to .gitignore to avoid committing MongoDB data files
 
 ## Setup Instructions
 
@@ -60,11 +73,12 @@ A complete MERN (MongoDB, Express.js, React, Node.js) e-commerce cart system tha
 ## User Flow
 
 1. Browse products on home page
-2. Add items to cart
-3. View cart with totals
+2. Add items to cart (with loading feedback)
+3. View cart with totals and GST calculation
 4. Proceed to checkout
 5. Enter customer details
-6. Complete purchase and view receipt
+6. Complete purchase and automatically redirect to products page
+7. Receive toast notifications for success/error states
 
 ## Project Structure
 
@@ -86,3 +100,26 @@ vibe-commerce-cart/
 ├── .env
 ├── package.json
 └── README.md
+```
+
+## Dependencies
+
+### Frontend
+- `react`: ^18.2.0
+- `react-dom`: ^18.2.0
+- `react-router-dom`: ^6.14.2
+- `axios`: ^1.4.0
+- `react-toastify`: ^10.0.4 (for toast notifications)
+
+### Backend
+- `express`: ^4.18.2
+- `mongoose`: ^7.5.3
+- `cors`: ^2.8.5
+- `dotenv`: ^16.3.1
+
+## Development Notes
+
+- Loading states prevent race conditions and multiple API calls
+- Toast notifications provide immediate user feedback
+- Automatic redirection after checkout improves user experience
+- MongoDB data directory is gitignored to prevent committing database files
