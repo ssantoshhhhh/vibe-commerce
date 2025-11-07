@@ -119,11 +119,9 @@ function App() {
 
       if (response.ok) {
         const data = await response.json();
-        setReceipt(data.receipt);
-        setShowReceipt(true);
         setCart([]);
         setCartCount(0);
-        toast.success('Order placed successfully!');
+        toast.success('Order placed successfully! Redirecting to products...');
         navigate('/products');
       } else {
         toast.error('Failed to place order. Please try again.');
